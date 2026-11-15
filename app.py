@@ -17,8 +17,14 @@ sns.set_theme(style="whitegrid")
 
 @st.cache_data
 def cargar_datos():
-    df = pd.read_csv("sales.csv")
+    df = pd.read_csv(
+        "sales.csv",
+        encoding="utf-8",
+        low_memory=False
+    )
+
     df["Date"] = pd.to_datetime(df["Date"])
+
     return df
 
 
